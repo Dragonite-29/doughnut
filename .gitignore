@@ -1,0 +1,13 @@
+node_modules
+.DS_STORE
+npm-debug.log*
+node_modules/
+dist/bundle.js
+_*.js
+temp.js
+package-lock.json
+temp/*.*
+yarn.lock
+build/*
+build/
+*.env
