@@ -1,11 +1,14 @@
 // Import pool query function from db.js
 const db = require('../db.js');
 
-// Declare helper function to find USER _id given a username value
-const getUserID = async(username) => {
+
+// Declare jobQueries object to store all functions related to JOB_TRACKER table
+const jobQueries = {};
+
+jobQueries.getUserId = async(username) => {
   try {
     const usernameArr = [username];
-    const qString = 'SELECT _id FROM USERS where username = $1';
+    const qString = `SELECT _id FROM USERS where username = $1`;
     const userIdResult = await db.query(qString, usernameArr);
     const userId = userIdResult.rows[0]._id;
     return userId;
@@ -15,13 +18,11 @@ const getUserID = async(username) => {
   }
 }
 
-// Declare jobQueries object to store all functions related to JOB_TRACKER table
-const jobQueries = {};
-
-jobQueries.getAllJobs = async (username) => {
+jobQueries.getAllJobs = async (userId) => {
   try {
-    const qString = 'SELECT * FROM JOB_TRACKER';
-    const results = await db.query(qString);
+    const userIdArr = [userId];
+    const qString = `SELECT * FROM JOB_TRACKER WHERE user_id = $1`;
+    const results = await db.query(qString, userIdArr);
     return results.rows;
 
   } catch (err) {
@@ -29,18 +30,15 @@ jobQueries.getAllJobs = async (username) => {
   }
 }
 
-jobQueries.addJobEntry = async (username) => {
+jobQueries.addJob = async (userId) => {
   try {
-    // Get USERS _id value for requested username
-    const userId = await getUserID(username);
-
     // Create new empty entry in JOB_TRACKER
     const userIdArr = [userId];
-    const qString = 'INSERT INTO JOB_TRACKER (user_id) VALUES ($1)';
+    const qString = `INSERT INTO JOB_TRACKER (user_id) VALUES ($1)`;
     await db.query(qString, userIdArr);
 
     // Get JOB_TRACKER _id of new entry
-    const qStringId = 'SELECT * FROM JOB_TRACKER ORDER BY _id DESC LIMIT 1';
+    const qStringId = `SELECT * FROM JOB_TRACKER ORDER BY _id DESC LIMIT 1`;
     const entryIdResult = await db.query(qStringId);
     const entryId = entryIdResult.rows[0]._id;
     return entryId;
@@ -50,32 +48,35 @@ jobQueries.addJobEntry = async (username) => {
   }
 }
 
-jobQueries.updateJobCompany = async (username, entryID, companyName) => {
-  
+jobQueries.updateField = async (userId, entryId, fieldName, companyName) => {
+  try {
+    // Fill company field where userId and entryId are a match in JOB_TRACKER
+    const variablesArr = [userId, entryId, companyName];
+    const qString = 
+    `UPDATE JOB_TRACKER 
+    SET ${fieldName} = $3
+    WHERE _id = $2 AND user_id = $1
+    `;
+    await db.query(qString, variablesArr);
+    return;
+  } catch (err) {
+    console.log(err);
+  }
 }
 
-jobQueries.updateJobPosting = async (username, entryID, jobPosting) => {
-  
-}
 
-jobQueries.updateJobRole = async (username, entryID, jobRole) => {
-  
-}
-
-jobQueries.updateJobDate = async (username, entryID, jobDate) => {
-  
-}
-
-jobQueries.updateJobStatus = async (username, entryID, jobStatus) => {
-  
-}
-
-jobQueries.updateJobNotes = async (username, entryID, jobNotes) => {
-  
-}
-
-jobQueries.deleteJobEntry = async (username, entryID) => {
-  
+jobQueries.deleteJob = async (userId, entryId) => {
+  try {
+    const variablesArr = [userId, entryId];
+    const qString = `
+    DELETE FROM JOB_TRACKER
+    WHERE _id = $2 AND user_id = $1
+    `;
+    await db.query(qString, variablesArr);
+  return;
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 module.exports = jobQueries;

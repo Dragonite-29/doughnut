@@ -9,15 +9,11 @@ app.use(express.urlencoded({ extended: true }));
 
 //import routers here
 const userRouter = require('./routers/userRouter.js');
+const jobRouter = require('./routers/jobRouter.js');
 
 // Statically serve everything in the build folder on the route '/build'
 // app.use('/build', express.static(path.join(__dirname, '../build')));
 
-
-//TODO: ************** DELETE THIS JOB TEST ENDPOINT BELOW ************** 
-const jobRouter = require('./routers/jobRouter.js');
-app.use('/job', jobRouter);
-//TODO: ************** DELETE BLOCK ABOVE *******************************
 
 // Serve index.html on the route '/'
 app.get('/', (req, res) => {
@@ -25,8 +21,10 @@ app.get('/', (req, res) => {
 });
 
 
-/*
 // endpoints here
+app.use('/job', jobRouter);
+
+/*
 app.use('/user', userRouter);
 
 // catch-all Error 404
