@@ -1,6 +1,6 @@
 //can we do mongodb for users and sql for data? or should this all be in one place?
 
-//example code from shepherd
+//<-------- EXAMPLE CODE FROM SHEPHERD --------->
 // create a user model for mongoose
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;

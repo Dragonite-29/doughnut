@@ -62,3 +62,14 @@ userController.createUser = (req, res, next) => {
       }
     }
   };
+
+  //add new job
+
+
+  //delete job
+
+
+  //add algo 
+
+
+  //delete algo
