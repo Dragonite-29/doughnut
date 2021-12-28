@@ -15,8 +15,8 @@ const userRouter = require('./routers/userRouter.js');
 
 
 //TODO: ************** DELETE THIS JOB TEST ENDPOINT BELOW ************** 
-const testJobRouter = require('./routers/testJobRouter.js');
-app.use('/testjob', testJobRouter);
+const jobRouter = require('./routers/jobRouter.js');
+app.use('/job', jobRouter);
 //TODO: ************** DELETE BLOCK ABOVE *******************************
 
 // Serve index.html on the route '/'

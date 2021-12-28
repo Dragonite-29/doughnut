@@ -9,6 +9,7 @@ const getUserID = async(username) => {
     const userIdResult = await db.query(qString, usernameArr);
     const userId = userIdResult.rows[0]._id;
     return userId;
+
   } catch (err) {
     console.log(err);
   }
@@ -17,17 +18,33 @@ const getUserID = async(username) => {
 // Declare jobQueries object to store all functions related to JOB_TRACKER table
 const jobQueries = {};
 
+jobQueries.getAllJobs = async (username) => {
+  try {
+    const qString = 'SELECT * FROM JOB_TRACKER';
+    const results = await db.query(qString);
+    return results.rows;
+
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 jobQueries.addJobEntry = async (username) => {
   try {
+    // Get USERS _id value for requested username
     const userId = await getUserID(username);
+
+    // Create new empty entry in JOB_TRACKER
     const userIdArr = [userId];
-    const qString = 'INSERT INTO JOB_TRACKER (user_id) VALUES ($1)'
-    // const entryIdResult = await db.query(qString, userIdArr);
-    // const entryId = entryIdResult.oid;
-    const entryIdResult = await db.query(qString, userIdArr);
-    const entryId = entryIdResult.insertId;
-    console.log("entryId is", entryId)
+    const qString = 'INSERT INTO JOB_TRACKER (user_id) VALUES ($1)';
+    await db.query(qString, userIdArr);
+
+    // Get JOB_TRACKER _id of new entry
+    const qStringId = 'SELECT * FROM JOB_TRACKER ORDER BY _id DESC LIMIT 1';
+    const entryIdResult = await db.query(qStringId);
+    const entryId = entryIdResult.rows[0]._id;
     return entryId;
+
   } catch (err) {
     console.log(err);
   }

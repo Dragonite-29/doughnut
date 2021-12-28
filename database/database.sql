@@ -75,6 +75,7 @@ VALUES ('2', '8881450894');
 DROP TABLE JOB_TRACKER;
 INSERT INTO JOB_TRACKER (user_id, company_name, job_posting, role, date_submitted, app_status, notes)
 VALUES (2, 'Amazon', 'https://www.linkedin.com/jobs/view/software-development-engineer-at-amazon-2844220187/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic', 'Software Development Engineer', '2021-12-28', 'Applied', 'Dream Job');
+DELETE FROM JOB_TRACKER WHERE _id > 1 
 
 --ALGO_PATTERNS--
 INSERT INTO ALGO_PATTERNS (user_id, name, notes, percent_complete)
