@@ -5,8 +5,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Router />
-  </Provider>,
-  document.getElementById('root'),
+  // <Provider store={store}>
+  <Router />
+  , document.getElementById('root'),
 );

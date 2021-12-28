@@ -9,30 +9,30 @@
  * ************************************
  */
 
-import JobTracker from '../Components/JobTracker';
-import * as types from '../constants/actionTypes';
+// import JobTracker from '../Components/JobTracker';
+// import * as types from '../constants/actionTypes';
 
-const initialState = {
-  companyName: [],
-  jobPosting: [],
-  role: [],
-  dateSubmitted: [],
-  appStatus: [],
-  notes: [],
-};
+// const initialState = {
+//   companyName: [],
+//   jobPosting: [],
+//   role: [],
+//   dateSubmitted: [],
+//   appStatus: [],
+//   notes: [],
+// };
  
-const jobReducer = (state = initialState, action) => {
-  let marketList;
+// const jobReducer = (state = initialState, action) => {
+//   let marketList;
  
-  switch (action.type) {
-    case types.ADD_ROW: 
-      // maybe the point of this is resetting new location to an empty string after creating a new market? 
-      // or preventing user from adding a market without a location?
-      return {
-        ...state,
-        newLocation: action.payload
-      };
-  }
+//   switch (action.type) {
+//     case types.ADD_ROW: 
+//       // maybe the point of this is resetting new location to an empty string after creating a new market? 
+//       // or preventing user from adding a market without a location?
+//       return {
+//         ...state,
+//         newLocation: action.payload
+//       };
+//   }
 
 //     case types.UPDATE_COMPANY_NAME:
 //       // iterate through marketList

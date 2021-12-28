@@ -9,7 +9,7 @@
  * ************************************
  */
 
-export const ADD_ROW = 'ADD_ROW';
+// export const ADD_ROW = 'ADD_ROW';
 // export const UPDATE_COMPANY_NAME = 'UPDATE_COMPANY_NAME';
 // export const UPDATE_JOB_POSTING = 'UPDATE_JOB_POSTING';
 // export const UPDATE_ROLE = 'UPDATE_ROLE';
