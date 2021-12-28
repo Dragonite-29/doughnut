@@ -4,7 +4,16 @@ import ReactDOM from 'react-dom';
 function JobTracker() {
   return (
     <div>
-      This is the job application tracker
+      <table>
+        <tr>
+          <th>Company name</th>
+          <th>Job posting</th>
+          <th>Role</th>
+          <th>Date Submitted</th>
+          <th>Application Status</th>
+          <th>Notes</th>
+        </tr>
+      </table>
     </div>
   );
 }

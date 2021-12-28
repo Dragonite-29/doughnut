@@ -16,3 +16,5 @@ export const addRowActionCreator = marketId => ({
   type: types.ADD_ROW,
   payload: marketId,
 });
+
+// export const updateCompanyNameCreator

@@ -13,7 +13,7 @@ function MainDashboard() {
       {/* <Patterns/> */}
       {/* <Problems/> */}
     </div>
-  )
+  );
 };
 
 export default MainDashboard;

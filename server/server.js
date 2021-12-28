@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 });
 
 // endpoints here
-app.use('/user', userRouter);
+// app.use('/user', userRouter);
 
 
 // catch-all Error 404
