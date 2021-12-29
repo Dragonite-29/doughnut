@@ -1,18 +1,20 @@
-// const express = require('express');
-// const router = express.Router();
-// const userController = require('../controllers/userController.js');
+const express = require('express');
+const router = express.Router();
+const userController = require('../controllers/userController.js');
+
+router.use(userController.getUserId);
+
+// handle login requests
+router.post('/verify', 
+  userController.verifyUser, 
+  (req, res) => res.status(200).json(res.locals.isVerified)
+);
 
 /*
 // handle signup requests
 router.route('/signup').post(userController.createUser, (req, res) => {
     res.status(200).json(res.locals.confirmation);
   });
-  
-// // handle login requests
-// router.route('/login').post(userController.verifyUser, (req, res) => {
-//   res.status(200).json(res.locals.confirmation);
-// });
-  
 // //handle requests to post new information to job spreadsheet
 // router.route('/addjob').post(userController.addJob, (req, res) => {
 //   res.status(200).json(res.locals.confirmation);
@@ -31,5 +33,7 @@ router.route('/signup').post(userController.createUser, (req, res) => {
 router.route('/deletealgo').delete(userController.deleteAlgo, (req, res) => {
   res.status(200).json(res.locals.confirmation);
 })
-module.exports = router;
 */
+
+module.exports = router;
+
