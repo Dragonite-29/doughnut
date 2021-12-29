@@ -9,20 +9,34 @@
  * ************************************
  */
 
-// import JobTracker from '../Components/JobTracker';
-// import * as types from '../constants/actionTypes';
+import JobTracker from '../Components/JobTracker';
+import * as types from '../constants/actionTypes';
 
-// const initialState = {
-//   companyName: [],
-//   jobPosting: [],
-//   role: [],
-//   dateSubmitted: [],
-//   appStatus: [],
-//   notes: [],
-// };
+const initialState = {
+  jobs: [],
+  job: {},
+  loading: false
+};
  
-// const jobReducer = (state = initialState, action) => {
-//   let marketList;
+const jobReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case types.GET_JOBS:
+      return {
+        ...state,
+        jobs: action.payload,
+        loading: false
+      };
+    
+    case types.DELETE_JOB:
+      return {
+        ...state,
+        loading: false
+      };
+    default: 
+      return state;
+  }
+};
+  // let marketList;
  
 //   switch (action.type) {
 //     case types.ADD_ROW: 
@@ -118,6 +132,5 @@
 //       return state;
 //     }
   // }
-};
  
 export default jobReducer;
