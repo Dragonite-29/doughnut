@@ -1,6 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import ReactDOM from 'react-dom';
-import axios from 'axios';
 import JobRow from './JobRow';
 import '../styles/styles.scss';
 
@@ -55,12 +53,30 @@ const JobTracker = () => {
       </table>
       {/* <JobRow /> */}
       {data.map(job => (
-        <JobRow key={job._id} company={job.company_name} role={job.role}/>
+        <JobRow 
+          key={job._id} 
+          company={job.company_name} 
+          role={job.role} 
+          date={job.date_submitted} 
+          posting={job.job_posting} 
+          notes={job.notes}
+          status={job.app_status}
+        />
       ))}
       {rows}
       {/* <button onClick={() => handleAddRow()}>Add</button> */}
       {/* <button onClick={() => console.log('hi')}>Add</button> */}
-      <button onClick={handleAddRow}>Add</button>
+      {/* <button onClick={handleAddRow}>Add</button> */}
+      {/* <button onClick={(event) => {
+        event.preventDefault();
+        return handleAddRow();
+      }}> Add </button> */}
+      <button onClick={() => {
+        return handleAddRow();
+      }}> Add </button>
+      <div>
+        <button type='submit' onClick={() => {handleAddRow}}> try </button>
+      </div>
     </div>
   );
 }
