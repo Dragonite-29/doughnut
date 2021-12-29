@@ -4,6 +4,8 @@ function LoginForm() {
 
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
+  const [ isLoggedIn, setIsLoggedIn ] = useState(false);
+  const [ errorMessage, setErrorMessage ] = useState('');
   
   const handleLogin = (username, password) => {
     fetch('/user/verify', {
@@ -11,11 +13,24 @@ function LoginForm() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password })
     })
-      .then((data) => {
-        console.log('response from logging in');
+      .then((data) => data.json())
+      .then((response) => {
+        console.log('response from login', response);
+        if (response) {
+          setIsLoggedIn(response);
+        } else {
+          setErrorMessage('Incorrect username/password. Please try again.');
+        }
       });
   };
 
+  if (isLoggedIn) {
+    return (
+      <div className='topnav'>
+        Hello {username}!
+      </div>
+    );
+  }
   return (
     <div className='topnav'>
       {/* <h2>Username</h2> */}
@@ -46,6 +61,7 @@ function LoginForm() {
           Log in
         </button>
       </div>
+      {errorMessage}
     </div>
 
   );
