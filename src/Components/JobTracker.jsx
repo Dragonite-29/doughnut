@@ -56,9 +56,11 @@ const JobTracker = () => {
         />
       ))}
       {rows}
-      <Button variant="contained" onClick={() => {
-        return handleAddRow();
-      }}> Add </Button>
+      <div className = 'button'>
+        <Button variant="contained" sx={{ '&:hover': { 'background-color': 'rgb(214, 66, 123)' } }} onClick={() => {
+          return handleAddRow();
+        }}>Add </Button> 
+      </div>
     </div>
   );
 };

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import LoginForm from '../Components/LoginForm';
 import SignUpForm from '../Components/SignUpForm';
 import JobTracker from '../Components/JobTracker';
+import Footer from '../Components/Footer';
 import pic from '../donut.png';
 
 

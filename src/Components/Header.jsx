@@ -6,12 +6,12 @@ const Header = () => {
       <table>
         <thead>
           <tr>
-            <th className = 'first-row-boxes'>Company Name</th>
-            <th className = 'first-row-boxes'>Job Posting</th>
-            <th className = 'first-row-boxes'>Role</th>
-            <th className = 'first-row-boxes'>Date Submitted</th>
-            <th className = 'first-row-boxes'>Application Status</th>
-            <th className = 'first-row-boxes'>Notes</th>
+            <th className = 'first-row-boxes'>COMPANY NAME</th>
+            <th className = 'first-row-boxes'>JOB POSTING</th>
+            <th className = 'first-row-boxes'>ROLE</th>
+            <th className = 'first-row-boxes'>DATE SUBMITTED</th>
+            <th className = 'first-row-boxes'>APPLICATION STATUS</th>
+            <th className = 'first-row-boxes'>NOTES</th>
           </tr>
         </thead>
       </table>
