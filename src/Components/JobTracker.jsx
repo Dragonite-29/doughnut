@@ -27,85 +27,56 @@ const JobTracker = () => {
   };
 
   return (
-
-    <div className="app-container">
-
+    <div className='container'>
+      {/* <h1 alignSelf='center'>Job Tracker</h1>
+      <table>
+        <tr>
+          <th>Company name</th>
+          <th>Job posting</th>
+          <th>Role</th>
+          <th>Date Submitted</th>
+          <th>Application Status</th>
+          <th>Notes</th>
+        </tr>
+      </table> */}
       <table>
         <thead>
           <tr>
-            <th>Company name</th>
-            <th>Job posting</th>
+            <th>Company Name</th>
+            <th>Job Posting</th>
             <th>Role</th>
             <th>Date Submitted</th>
             <th>Application Status</th>
             <th>Notes</th>
           </tr>
         </thead>
-        {/* <tbody>
-          {jobs.map((job) => (
-            <tr>
-              <td>{job.companyName}</td>
-              <td>{job.jobPosting}</td>
-              <td>{job.role}</td>
-              <td>{job.dateSubmitted}</td>
-              <td>{job.applicationStatus}</td>
-              <td>{job.notes}</td>
-            </tr>
-          ))}
-        </tbody> */}
       </table>
-
-      <h3>Add a job</h3>
-      <form onSubmit={handleAddFormSubmit}>
-        <input 
-          type="text"
-          name="companyName"
-          required="required"
-          placeholder=" Enter company name..."
-          onChange={handleAddFormChange}
+      {/* <JobRow /> */}
+      {data.map(job => (
+        <JobRow 
+          key={job._id} 
+          company={job.company_name} 
+          role={job.role} 
+          date={job.date_submitted} 
+          posting={job.job_posting} 
+          notes={job.notes}
+          status={job.app_status}
         />
-        <input 
-          type="text"
-          name="jobPosting"
-          required="required"
-          placeholder="Job posting..."
-          onChange={handleAddFormChange}
-        />
-        <input 
-          type="text"
-          name="role"
-          required="required"
-          placeholder="Enter role..."
-          onChange={handleAddFormChange}
-        />
-        <input 
-          type="date"
-          name="dateSubmitted"
-          required="required"
-          placeholder="Input date..."
-          onChange={handleAddFormChange}
-        />
-
-        <select name="appStatus" onChange={handleAddFormChange}>
-          <option value="Application sent">Application sent</option>
-          <option value="Phone screen">Phone screen</option>
-          <option value="Technical interview">Technical interview</option>
-          <option value="Offered">Offered</option>
-          <option value="Signed">Signed</option>
-          <option value="Rejected">Rejected</option>
-          <option value="Declined">Declined</option>
-          <option value="Ghosted">Ghosted</option>
-        </select>
-
-        <input 
-          type="text"
-          name="notes"
-          placeholder="Enter notes..."
-          onChange={handleAddFormChange}
-        />
-
-        <button type="submit" onClick={() => console.log('BOOOOOOOOOOO')}>Add</button>
-      </form>
+      ))}
+      {rows}
+      {/* <button onClick={() => handleAddRow()}>Add</button> */}
+      {/* <button onClick={() => console.log('hi')}>Add</button> */}
+      {/* <button onClick={handleAddRow}>Add</button> */}
+      {/* <button onClick={(event) => {
+        event.preventDefault();
+        return handleAddRow();
+      }}> Add </button> */}
+      <button onClick={() => {
+        return handleAddRow();
+      }}> Add </button>
+      <div>
+        <button type='submit' onClick={() => {handleAddRow}}> try </button>
+      </div>
     </div>
   );
 }
