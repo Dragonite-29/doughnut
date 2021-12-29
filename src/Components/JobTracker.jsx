@@ -54,6 +54,7 @@ const JobTracker = () => {
       {data.map(job => (
         <JobRow 
           key={job._id} 
+          entryId={job._id} 
           company={job.company_name} 
           role={job.role} 
           date={job.date_submitted} 
@@ -68,6 +69,6 @@ const JobTracker = () => {
       }}> Add </button>
     </div>
   );
-}
+};
 
 export default JobTracker;
