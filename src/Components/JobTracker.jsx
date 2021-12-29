@@ -4,7 +4,6 @@ import '../styles/styles.scss';
 
 const JobTracker = () => {
   const [data, setData] = useState([]);
-  let onLoad;
   const [rows, setRows] = useState([]);
   useEffect( async () => {
     // code to run on component mount
