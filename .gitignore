@@ -11,3 +11,5 @@ yarn.lock
 build/*
 build/
 *.env
+.vscode
+**/node_modules

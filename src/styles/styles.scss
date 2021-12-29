@@ -1,0 +1,110 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  // gap: 10px;
+  // padding: 1rem;
+}
+
+.topnav {
+  overflow: hidden;
+  // background-color: #e9e9e9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+// .topnav .login-container {
+//   float: right;
+// }
+
+body {
+  color: rgb(214, 66, 123);
+  margin: 0;
+  background-color: rgb(201, 236, 247);
+  overflow: hidden;
+}
+
+.container {
+  height: 100vh;
+}
+
+.logo {
+  display: block;
+  max-width:95px;
+  max-height:95px;
+  width: auto;
+  height: auto;
+}
+
+.header {
+  font-family: 'Pushster', cursive;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  padding: 10px;
+}
+
+.landing-page {
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 82vh;
+}
+
+.first-row-boxes{
+  font-family: "Monaco", sans-serif;
+  background-color: rgb(111, 156, 252);
+  color: white;
+  max-width: 200px;
+  min-width: 200px;
+  max-height: 150px;
+  border: none;
+  border-radius: 3px;
+  margin-top: 5px;
+  padding-right: 10px;
+}
+
+.deleteRowButton {
+  z-index: 1 !important;
+  max-width: 30px;
+  height: 30px;
+  align-self: flex-start;
+  position: relative;
+  // left: 30px;
+  background-color: transparent;
+  border: none;
+  color: rgb(201, 236, 247);
+  top: -10px;
+  &:hover {
+      color: rgb(214, 66, 123);
+      cursor: pointer;
+  }
+  font-weight: 900;
+}
+
+.text-area {
+  font-family: "Inter", sans-serif;
+  max-width: 200px;
+  min-width: 200px;
+  min-height: 60px;
+  max-height: 500px;
+  border: none;
+  border-radius: 3px;
+  margin-top: 5px;
+  margin-right: 10px;
+  resize: none;
+  outline: none;
+}
+
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  margin-right: 11px;
+  margin-top: 10px;
+}
