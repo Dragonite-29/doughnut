@@ -1,9 +1,5 @@
 -- Put all of our SQL queries here 
--- URL: postgres://uriopwhg:OCX1frU-A_ry4hyeec1kgxLnOpJAcKnj@castor.db.elephantsql.com/uriopwhg
--- Host name/Address: castor.db.elephantsql.com (castor-01)
--- Maintenance database: 
--- Username: uriopwhg
--- PW: OCX1frU-A_ry4hyeec1kgxLnOpJAcKnj
+-- See .env file for credentials
 
 CREATE TABLE USERS (
   "_id" serial PRIMARY KEY,
@@ -55,7 +51,6 @@ CREATE TABLE ALGO_PROBLEMS (
 
 --Command to run our database.sql file
 --psql -d <url from elephantSQL> -f database.sql
---psql -d postgres://uriopwhg:OCX1frU-A_ry4hyeec1kgxLnOpJAcKnj@castor.db.elephantsql.com/uriopwhg -f database/database.sql
 
 /* 
 

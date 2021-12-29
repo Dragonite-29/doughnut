@@ -21,7 +21,7 @@ jobQueries.getUserId = async(username) => {
 jobQueries.getAllJobs = async (userId) => {
   try {
     const userIdArr = [userId];
-    const qString = `SELECT * FROM JOB_TRACKER WHERE user_id = $1`;
+    const qString = `SELECT * FROM JOB_TRACKER WHERE user_id = $1 ORDER BY _id ASC`;
     const results = await db.query(qString, userIdArr);
     return results.rows;
 

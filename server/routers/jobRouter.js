@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const jobController = require('../controllers/jobController.js');
 
-
 // Router handles requests sent to localhost:3000/job/*
 // Expecting a body with different keys according to controller. For example: {username: 'dragonite'}
 
@@ -52,7 +51,5 @@ router.post('/deletejob',
   jobController.deleteJob,
   (req, res) => res.sendStatus(200)
 );
-
-
 
 module.exports = router;
