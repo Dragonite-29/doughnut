@@ -3,7 +3,7 @@ const dotenv = require('dotenv'); // Allows us to safely store and reference cre
 dotenv.config({ path: '../.env' }); 
 
 const PG_URI = process.env.PG_URI;
-
+console.log('PG_URI', PG_URI)
 // create a new pool here using the connection string above
 const pool = new Pool({
   connectionString: PG_URI

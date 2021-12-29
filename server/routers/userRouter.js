@@ -27,17 +27,9 @@ router.route('/signup').post(userController.createUser, (req, res) => {
 //   res.status(200).json(res.locals.confirmation);
 // })
 
-<<<<<<< HEAD
-// //handle request to delete
-// router.route('/deletealgo').delete(userController.deleteAlgo, (req, res) => {
-//   res.status(200).json(res.locals.confirmation);
-// })
-// module.exports = router;
-=======
 //handle request to delete
 router.route('/deletealgo').delete(userController.deleteAlgo, (req, res) => {
   res.status(200).json(res.locals.confirmation);
 })
 module.exports = router;
 */
->>>>>>> dev
