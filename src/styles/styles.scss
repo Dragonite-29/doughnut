@@ -1,9 +1,23 @@
-// .container {
-//   display: flex;
-//   flex-direction: column;
-//   gap: 10px;
-//   padding: 1rem;
-// }
+.container {
+  display: flex;
+  flex-direction: column;
+  // gap: 10px;
+  // padding: 1rem;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #e9e9e9;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: row;
+}
+
+.topnav .login-container {
+  float: right;
+}
+
 body {
   color: rgb(214, 66, 123);
   margin: 0;
@@ -53,6 +67,23 @@ body {
   border-radius: 3px;
   margin-top: 5px;
   padding-right: 10px;
+}
+
+.deleteRowButton {
+  z-index: 1 !important;
+  max-width: 30px;
+  height: 30px;
+  align-self: flex-start;
+  position: relative;
+  // left: 30px;
+  background-color: transparent;
+  border: none;
+  color: rgb(111, 156, 252);
+  top: -10px;
+  &:hover {
+      color: white;
+      cursor: pointer;
+  }
 }
 
 .text-area {

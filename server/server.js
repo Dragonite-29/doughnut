@@ -25,6 +25,9 @@ app.get('/', (req, res) => {
 
 app.use('/job', jobRouter);
 
+// endpoints here
+app.use('/user', userRouter);
+
 //spin up server
 app.listen(PORT, () => {
   console.log(`Server listening to: ${PORT}... at ${new Date}`);

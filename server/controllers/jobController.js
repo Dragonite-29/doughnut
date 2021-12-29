@@ -1,5 +1,5 @@
 const express = require('express');
-const jobQueries = require('../databaseFunctions/jobQueries.js')
+const jobQueries = require('../databaseFunctions/jobQueries.js');
 const jobController = {};
 
 
