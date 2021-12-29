@@ -23,22 +23,12 @@ const JobTracker = () => {
   const handleAddRow = () => {
     console.log('add');
     rows.push(<JobRow />);
+    // console.log('rows', rows);
     setRows(rows);
   };
 
   return (
     <div className='container'>
-      {/* <h1 alignSelf='center'>Job Tracker</h1>
-      <table>
-        <tr>
-          <th>Company name</th>
-          <th>Job posting</th>
-          <th>Role</th>
-          <th>Date Submitted</th>
-          <th>Application Status</th>
-          <th>Notes</th>
-        </tr>
-      </table> */}
       <table>
         <thead>
           <tr>
@@ -51,7 +41,6 @@ const JobTracker = () => {
           </tr>
         </thead>
       </table>
-      {/* <JobRow /> */}
       {data.map(job => (
         <JobRow 
           key={job._id} 
@@ -64,19 +53,9 @@ const JobTracker = () => {
         />
       ))}
       {rows}
-      {/* <button onClick={() => handleAddRow()}>Add</button> */}
-      {/* <button onClick={() => console.log('hi')}>Add</button> */}
-      {/* <button onClick={handleAddRow}>Add</button> */}
-      {/* <button onClick={(event) => {
-        event.preventDefault();
-        return handleAddRow();
-      }}> Add </button> */}
       <button onClick={() => {
         return handleAddRow();
       }}> Add </button>
-      <div>
-        <button type='submit' onClick={() => {handleAddRow}}> try </button>
-      </div>
     </div>
   );
 }
