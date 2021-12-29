@@ -16,7 +16,7 @@ jobQueries.getUserId = async(username) => {
   } catch (err) {
     console.log(err);
   }
-}
+};
 
 jobQueries.getAllJobs = async (userId) => {
   try {
@@ -28,7 +28,7 @@ jobQueries.getAllJobs = async (userId) => {
   } catch (err) {
     console.log(err);
   }
-}
+};
 
 jobQueries.addJob = async (userId) => {
   try {
@@ -46,7 +46,7 @@ jobQueries.addJob = async (userId) => {
   } catch (err) {
     console.log(err);
   }
-}
+};
 
 jobQueries.updateField = async (userId, entryId, fieldName, companyName) => {
   try {
@@ -62,7 +62,7 @@ jobQueries.updateField = async (userId, entryId, fieldName, companyName) => {
   } catch (err) {
     console.log(err);
   }
-}
+};
 
 
 jobQueries.deleteJob = async (userId, entryId) => {
@@ -77,6 +77,6 @@ jobQueries.deleteJob = async (userId, entryId) => {
   } catch (err) {
     console.log(err);
   }
-}
+};
 
 module.exports = jobQueries;

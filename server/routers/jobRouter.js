@@ -49,7 +49,8 @@ router.post('/updatenotes',
 
 router.post('/deletejob',
   jobController.deleteJob,
-  (req, res) => res.sendStatus(200)
+  jobController.getAllJobs, 
+  (req, res) => res.status(200).json(res.locals.jobEntries)
 );
 
 module.exports = router;
