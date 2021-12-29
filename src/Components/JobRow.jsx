@@ -1,48 +1,17 @@
 import React from 'react';
 import TextArea from './TextArea';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-
 
 function JobRow(props) {
+  console.log('row props key', props.entryId);
+  console.log('row props status', props.status);
   return (
     <div className='row'>
-      <TextArea id='companyName' value={props.company}/>
-      <TextArea id='jobPosting'/>
-      <TextArea id='role' value={props.role}/>
-      <TextArea id='date'/>
-      <TextArea id='status'/>
-      <TextArea id='notes'/>
-      {/* <Grid container direction="row">
-        <TextArea />
-        <TextArea />
-        <TextArea />
-        <TextArea />
-        <TextArea />
-        <TextArea />
-      </Grid> */}
-      {/* <Box sx={{ width: '100%' }}>
-        <Grid container rowSpacing={1}>
-          <Grid item xs={2}>
-            <TextArea />
-          </Grid>
-          <Grid item xs={2}>
-            <TextArea />
-          </Grid>
-          <Grid item xs={2}>
-            <TextArea />
-          </Grid>
-          <Grid item xs={2}>
-            <TextArea />
-          </Grid>
-          <Grid item xs={2}>
-            <TextArea />
-          </Grid>
-          <Grid item xs={2}>
-            <TextArea />
-          </Grid>
-        </Grid>
-      </Box> */}
+      <TextArea api='updatecompany' name='company' entryId={props.entryId} value={props.company}/>
+      <TextArea api='updateposting' name='posting' entryId={props.entryId} value={props.posting} />
+      <TextArea api='updaterole' name='role' entryId={props.entryId} value={props.role}/>
+      <TextArea api='updatedate' name='date' entryId={props.entryId} value={props.date}/>
+      <TextArea api='updatestatus' name='status' entryId={props.entryId} value={props.status}/>
+      <TextArea api='updatenotes' name='notes' entryId={props.entryId} value={props.notes}/>
     </div>
   );
 }

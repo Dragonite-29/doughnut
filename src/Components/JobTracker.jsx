@@ -1,10 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import JobRow from './JobRow';
+import Header from './Header';
 import '../styles/styles.scss';
+import Button from '@mui/material/Button';
+
 
 const JobTracker = () => {
   const [data, setData] = useState([]);
-  let onLoad;
   const [rows, setRows] = useState([]);
   useEffect( async () => {
     // code to run on component mount
@@ -20,41 +22,31 @@ const JobTracker = () => {
       });
   }, []);
 
-  const handleAddRow = () => {
+  const handleAddRow = async () => {
+    let Id;
     console.log('add');
-    rows.push(<JobRow />);
-    setRows(rows);
+    // create new entry in the database
+    await fetch('/job/addjob', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username: 'dragonite'})
+    })
+      .then((data) => data.json())
+      .then((response) => {
+        console.log('entryId', response);
+        Id = response;
+      });
+    rows.push(<JobRow key={Id}/>);
+    setRows([...rows]);
   };
 
   return (
-    <div className='container'>
-      {/* <h1 alignSelf='center'>Job Tracker</h1>
-      <table>
-        <tr>
-          <th>Company name</th>
-          <th>Job posting</th>
-          <th>Role</th>
-          <th>Date Submitted</th>
-          <th>Application Status</th>
-          <th>Notes</th>
-        </tr>
-      </table> */}
-      <table>
-        <thead>
-          <tr>
-            <th>Company Name</th>
-            <th>Job Posting</th>
-            <th>Role</th>
-            <th>Date Submitted</th>
-            <th>Application Status</th>
-            <th>Notes</th>
-          </tr>
-        </thead>
-      </table>
-      {/* <JobRow /> */}
+    <div className='job-tracker'>
+      <Header />
       {data.map(job => (
         <JobRow 
           key={job._id} 
+          entryId={job._id} 
           company={job.company_name} 
           role={job.role} 
           date={job.date_submitted} 
@@ -64,21 +56,11 @@ const JobTracker = () => {
         />
       ))}
       {rows}
-      {/* <button onClick={() => handleAddRow()}>Add</button> */}
-      {/* <button onClick={() => console.log('hi')}>Add</button> */}
-      {/* <button onClick={handleAddRow}>Add</button> */}
-      {/* <button onClick={(event) => {
-        event.preventDefault();
+      <Button variant="contained" onClick={() => {
         return handleAddRow();
-      }}> Add </button> */}
-      <button onClick={() => {
-        return handleAddRow();
-      }}> Add </button>
-      <div>
-        <button type='submit' onClick={() => {handleAddRow}}> try </button>
-      </div>
+      }}> Add </Button>
     </div>
   );
-}
+};
 
 export default JobTracker;

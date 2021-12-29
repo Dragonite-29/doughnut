@@ -5,10 +5,11 @@ import LandingPage from './Containers/LandingPage';
 // RENDERS landing page
 function App() {
   return (
-    <div>
+    <div className = 'container'>
       {/* Hello this is the App */}
       <LandingPage />
     </div>
+   
   );
 }
 
