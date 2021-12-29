@@ -20,8 +20,9 @@
   },
   "homepage": "https://github.com/Dragonite-29/doughnut#readme",
   "dependencies": {
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
     "@mui/material": "^5.2.6",
-<<<<<<< HEAD
     "axios": "^0.24.0",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^5.1.3",
@@ -31,11 +32,6 @@
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.28.0",
-=======
-    "bcryptjs": "^2.4.3",
-    "bootstrap": "^5.1.3",
-    "dotenv": "^10.0.0",
->>>>>>> 21b1650bf7d1352a549e74947f04bc46e5ffcbb4
     "express": "^4.17.2",
     "file-loader": "^6.2.0",
     "jsonwebtoken": "^8.5.1",

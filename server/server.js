@@ -23,10 +23,14 @@ app.get('/', (req, res) => {
 
 // endpoints here
 <<<<<<< HEAD
+<<<<<<< HEAD
 // app.use('/user', userRouter);
 =======
 app.use('/job', jobRouter);
 >>>>>>> 21b1650bf7d1352a549e74947f04bc46e5ffcbb4
+=======
+app.use('/job', jobRouter);
+>>>>>>> dc8920c06cdfaaaea4bae1353150de22ee36ef7d
 
 /*
 app.use('/user', userRouter);

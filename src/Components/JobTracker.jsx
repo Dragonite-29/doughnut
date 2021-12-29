@@ -1,79 +1,30 @@
-import React, {useState} from 'react';
-import ReactDOM from 'react-dom';
-// import axios from 'axios';
-import '../App.css';
+import React, {useEffect, useState} from 'react';
+import JobRow from './JobRow';
+import '../styles/styles.scss';
 
-function JobTracker(data) {
+const JobTracker = () => {
+  const [data, setData] = useState([]);
+  let onLoad;
+  const [rows, setRows] = useState([]);
+  useEffect( async () => {
+    // code to run on component mount
+    await fetch('/job/getalljobs', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username: 'dragonite'})
+    })
+      .then((data) => data.json())
+      .then((response) => {
+        console.log('response', response);
+        setData(response);
+      });
+  }, []);
 
-  // const [jobs, setJobs] = useState(data);
-  const [addFormData, setAddFormData] = useState({
-    companyName: '',
-    jobPosting: '',
-    role: '',
-    dateSubmitted: '',
-    appStatus: '',
-    notes: ''
-  })
-
-  const handleAddFormChange = (event) => {
-    event.preventDeafault();
-    const fieldName = event.target.getAttribute("name");
-    const fieldValue = event.target.value;
-    const newFormData = { ...addFormData };
-    newFormData[fieldName] = fieldValue;
-    setAddFormData(newFormData);
-  }
-
-  const handleAddFormSubmit = (event) => {
-    event.preventDeafault();
-    const newJob = {
-      // id: nanoid()
-      companyName: addFormData.companyName,
-      jobPosting: addFormData.jobPosting,
-      role: addFormData.role,
-      dateSubmitted: addFormData.dateSubmitted,
-      appStatus: addFormData.appStatus,
-      notes: addFormData.notes
-    };
-
-    const newJobs = [...jobs, newJob];
-    setJobs(newJobs);
-  }
-
-  // const addJob = () => {
-
-  //   fetch(`/our database/add`, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'Application/JSON'
-  //     },
-  //     body: JSON.stringify(body)
-  //   })
-  //     .then(() => {
-
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     })
-  // }
-
-  // const newJob = {
-  //   exercise_description: this.state.exercise_description,
-  //   time_per_exercise: this.state.time_per_exercise,
-  //   difficulty: this.state.difficulty,
-  //   exercise_completed: this.state.exercise_completed
-  // }
-
-  // axios.post('http://localhost:whatever/jobs/add', newJob)
-  //   .then(data => console.log(res.data));
-
-  // this.setState({
-  //   exercise_description: '',
-  //   time_per_exercise: 0,
-  //   difficulty: '',
-  //   exercise_completed: false,
-  // })
-
+  const handleAddRow = () => {
+    console.log('add');
+    rows.push(<JobRow />);
+    setRows(rows);
+  };
 
   return (
 
