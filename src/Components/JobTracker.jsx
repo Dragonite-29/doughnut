@@ -22,8 +22,7 @@ const JobTracker = () => {
   const handleAddRow = () => {
     console.log('add');
     rows.push(<JobRow />);
-    // console.log('rows', rows);
-    setRows(rows);
+    setRows([...rows]);
   };
 
   return (
