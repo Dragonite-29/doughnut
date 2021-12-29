@@ -4,13 +4,13 @@ function LoginForm() {
 
   const [ username, setUsername ] = useState('');
 
-  const handleLogin = (username) => {
-    fetch('/jobs/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' }
-    })
-    .then()
-  };
+  // const handleLogin = (username) => {
+  //   fetch('/jobs/', {
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/json' }
+  //   })
+  //   .then()
+  // };
   return (
     <div>
       <div>
@@ -19,7 +19,6 @@ function LoginForm() {
           <input
             id="login-username"
             type="text"
-            // placeholder="login username placeholder..."
             onChange={(event) => setUsername(event.target.value)}
           />
         </form>
