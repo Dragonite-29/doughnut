@@ -2,8 +2,6 @@ import React from 'react';
 import TextArea from './TextArea';
 
 function JobRow(props) {
-  console.log('row props key', props.entryId);
-  console.log('row props status', props.status);
   return (
     <div className='row'>
       <TextArea api='updatecompany' name='company' entryId={props.entryId} value={props.company}/>

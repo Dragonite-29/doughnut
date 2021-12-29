@@ -20,7 +20,7 @@ function TextArea(props) {
 
   return (
     <textarea
-      onChange={() => updateValue(event, props.api, props.entryId, props.name)}
+      onChange={(event) => updateValue(event, props.api, props.entryId, props.name)}
       value={currValue}
     />
   );
