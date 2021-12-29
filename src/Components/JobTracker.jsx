@@ -57,26 +57,26 @@ const JobTracker = () => {
 
 
   return (
-    <div>
-      <div className='job-tracker'>
-        <Header />
-        {data.map(job => (
-          <JobRow 
-            key={job._id} 
-            entryId={job._id} 
-            company={job.company_name} 
-            role={job.role} 
-            date={job.date_submitted} 
-            posting={job.job_posting} 
-            notes={job.notes}
-            status={job.app_status}
-            handleDelete={handleDelete}
-          />
-        ))}
-        {rows}
-        <Button variant="contained" onClick={() => {
+    <div className='job-tracker'>
+      <Header />
+      {data.map(job => (
+        <JobRow 
+          key={job._id} 
+          entryId={job._id} 
+          company={job.company_name} 
+          role={job.role} 
+          date={job.date_submitted} 
+          posting={job.job_posting} 
+          notes={job.notes}
+          status={job.app_status}
+          handleDelete={handleDelete}
+        />
+      ))}
+      {rows}
+      <div className = 'button'>
+        <Button variant="contained" sx={{ '&:hover': { 'background-color': 'rgb(214, 66, 123)' } }} onClick={() => {
           return handleAddRow();
-        }}> Add </Button>
+        }}>Add </Button> 
       </div>
     </div>
 

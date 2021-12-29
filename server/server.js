@@ -21,6 +21,8 @@ app.get('/', (req, res) => {
 });
 
 // endpoints here
+// app.use('/user', userRouter);
+
 app.use('/job', jobRouter);
 
 // endpoints here
