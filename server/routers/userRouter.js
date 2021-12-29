@@ -10,6 +10,11 @@ router.post('/verify',
   (req, res) => res.status(200).json(res.locals.isVerified)
 );
 
+// // handle signup requests
+// router.route('/signup').post(userController.createUser, (req, res) => {
+//     res.status(200).json(res.locals.confirmation);
+//   });
+
 /*
 // handle signup requests
 router.route('/signup').post(userController.createUser, (req, res) => {
@@ -28,6 +33,12 @@ router.route('/signup').post(userController.createUser, (req, res) => {
 // router.route('/addalgo').post(userController.addAlgo, (req, res) => {
 //   res.status(200).json(res.locals.confirmation);
 // })
+
+// //handle request to delete
+// router.route('/deletealgo').delete(userController.deleteAlgo, (req, res) => {
+//   res.status(200).json(res.locals.confirmation);
+// })
+// module.exports = router;
 
 //handle request to delete
 router.route('/deletealgo').delete(userController.deleteAlgo, (req, res) => {

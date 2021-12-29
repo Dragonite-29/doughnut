@@ -22,6 +22,7 @@ function TextArea(props) {
       onChange={(e) => updateValue(e, props.api, props.entryId, props.name)}
       value={currValue}
     />
+    
   );
 }
 
