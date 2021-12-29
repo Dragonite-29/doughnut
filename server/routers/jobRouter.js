@@ -5,7 +5,7 @@ const jobController = require('../controllers/jobController.js');
 // Router handles requests sent to localhost:3000/job/*
 // Expecting a body with different keys according to controller. For example: {username: 'dragonite'}
 
-router.use(jobController.getUserId)
+router.use(jobController.getUserId);
 
 router.post('/getalljobs', 
   jobController.getAllJobs, 
