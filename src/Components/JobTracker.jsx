@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import JobRow from './JobRow';
+import Header from './Header';
 import '../styles/styles.scss';
+import Button from '@mui/material/Button';
+
 
 const JobTracker = () => {
   const [data, setData] = useState([]);
@@ -28,19 +31,8 @@ const JobTracker = () => {
   };
 
   return (
-    <div className='container'>
-      <table>
-        <thead>
-          <tr>
-            <th>Company Name</th>
-            <th>Job Posting</th>
-            <th>Role</th>
-            <th>Date Submitted</th>
-            <th>Application Status</th>
-            <th>Notes</th>
-          </tr>
-        </thead>
-      </table>
+    <div className='job-tracker'>
+      <Header />
       {data.map(job => (
         <JobRow 
           key={job._id} 
@@ -53,11 +45,11 @@ const JobTracker = () => {
         />
       ))}
       {rows}
-      <button onClick={() => {
+      <Button variant="contained" onClick={() => {
         return handleAddRow();
-      }}> Add </button>
+      }}> Add </Button>
     </div>
   );
-}
+};
 
 export default JobTracker;

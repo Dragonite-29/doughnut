@@ -4,7 +4,7 @@ function TextArea(props) {
 
   const [ currValue, setCurrValue ] = useState(props.value);
   return (
-    <textarea
+    <textarea className ='text-area'
       onChange={(event) => {
         console.log('currValue', event.target.value);
         return setCurrValue(event.target.value);
