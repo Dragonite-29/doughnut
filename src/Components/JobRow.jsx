@@ -2,14 +2,16 @@ import React from 'react';
 import TextArea from './TextArea';
 
 function JobRow(props) {
+  console.log('row props key', props.entryId);
+  console.log('row props status', props.status);
   return (
     <div className='row'>
-      <TextArea id='companyName' value={props.company}/>
-      <TextArea id='jobPosting' value={props.posting} />
-      <TextArea id='role' value={props.role}/>
-      <TextArea id='date' value={props.date}/>
-      <TextArea id='status' value={props.status}/>
-      <TextArea id='notes' value={props.notes}/>
+      <TextArea api='updatecompany' name='company' entryId={props.entryId} value={props.company}/>
+      <TextArea api='updateposting' name='posting' entryId={props.entryId} value={props.posting} />
+      <TextArea api='updaterole' name='role' entryId={props.entryId} value={props.role}/>
+      <TextArea api='updatedate' name='date' entryId={props.entryId} value={props.date}/>
+      <TextArea api='updatestatus' name='status' entryId={props.entryId} value={props.status}/>
+      <TextArea api='updatenotes' name='notes' entryId={props.entryId} value={props.notes}/>
     </div>
   );
 }
