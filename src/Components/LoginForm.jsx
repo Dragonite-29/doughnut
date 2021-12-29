@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { AppBar, Typography, Toolbar, Button } from '@mui/material';
 
 function LoginForm() {
 
@@ -32,37 +33,47 @@ function LoginForm() {
     );
   }
   return (
-    <div className='topnav'>
-      {/* <h2>Username</h2> */}
-      <form>
-        <input
-          id="login-username"
-          type="text"
-          placeholder="username"
-          onChange={(event) => setUsername(event.target.value)}
-        />
-      </form>
-      {/* <h2>Password</h2> */}
-      <form>
-        <input
-          id="login-password"
-          type="password"
-          placeholder="password"
-          onChange={(event) => setPassword(event.target.value)}
-        />
-      </form>
-      <div>
-        <button
-          type="submit"
-          onClick={(event) => {
-            event.preventDefault();
-            return handleLogin(username, password);
-          }}>
+    <AppBar position="fixed" color="primary" >
+      <Toolbar justifytext="center">
+        <Typography py={3} variant="body1" color="inherit">
+          <div className='topnav'>
+            {/* <h2>Username</h2> */}
+            <form>
+              <input
+                id="login-username"
+                type="text"
+                placeholder="username"
+                onChange={(event) => setUsername(event.target.value)}
+              />
+            </form>
+            {/* <h2>Password</h2> */}
+            <form>
+              <input
+                id="login-password"
+                type="password"
+                placeholder="password"
+                onChange={(event) => setPassword(event.target.value)}
+              />
+            </form>
+            <div>
+              <Button
+                sx={{
+                  '&.MuiButton-text': { color: 'white' },
+                  '&:hover': { color: 'rgb(214, 66, 123)' }
+                }}
+                type="submit"
+                onClick={(event) => {
+                  event.preventDefault();
+                  return handleLogin(username, password);
+                }}>
           Log in
-        </button>
-      </div>
-      {errorMessage}
-    </div>
+              </Button>
+            </div>
+            {errorMessage}
+          </div>
+        </Typography>
+      </Toolbar>
+    </AppBar>
 
   );
 }
