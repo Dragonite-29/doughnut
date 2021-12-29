@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController.js');
 
+/*
 // handle signup requests
 router.route('/signup').post(userController.createUser, (req, res) => {
     res.status(200).json(res.locals.confirmation);
@@ -31,3 +32,4 @@ router.route('/deletealgo').delete(userController.deleteAlgo, (req, res) => {
   res.status(200).json(res.locals.confirmation);
 })
 module.exports = router;
+*/
