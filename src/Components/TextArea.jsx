@@ -19,8 +19,8 @@ function TextArea(props) {
   };
 
   return (
-    <textarea
-      onChange={(event) => updateValue(event, props.api, props.entryId, props.name)}
+    <textarea className ='text-area'
+      onChange={() => updateValue(event, props.api, props.entryId, props.name)}
       value={currValue}
     />
   );
